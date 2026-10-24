@@ -5,150 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flor & Flor | Arte Floral & Catálogo</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
 <body class="bg-[#f9f6f0] text-[#2c2a29] font-sans">
 
     <!-- Encabezado -->
-    <header class="bg-white shadow-sm border-b border-[#e8c4c4] py-6 text-center">
+    <header class="bg-white shadow-sm border-b border-[#e8c4c4] py-6 text-center sticky top-0 z-50">
         <h1 class="text-3xl font-serif font-bold text-[#2c2a29]">Flor & Flor</h1>
-        <p class="text-sm tracking-widest text-[#c5a059] uppercase mt-1">Arte Floral que Emociona • Caaguazú</p>
+        <p class="text-xs tracking-widest text-[#c5a059] uppercase mt-1">Arte Floral que Emociona • Caaguazú | Campo 9</p>
     </header>
 
-    <!-- Barra de Categorías en Círculos (Estilo Historias/Catálogo) -->
-    <nav class="bg-white py-6 shadow-sm border-b border-gray-100 overflow-x-auto">
-        <div class="max-w-6xl mx-auto px-4 flex gap-6 md:gap-10 justify-start md:justify-center items-center scrollbar-none">
+    <!-- Barra de Categorías (Círculos) -->
+    <nav class="bg-white py-6 shadow-sm border-b border-gray-100 overflow-x-auto no-scrollbar">
+        <div class="max-w-6xl mx-auto px-4 flex gap-6 md:gap-8 justify-start md:justify-center items-center">
             
-            <!-- Círculo 1 -->
-            <div class="flex flex-col items-center cursor-pointer group flex-shrink-0">
-                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition">
-                    <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 overflow-hidden">
-                        🌸
-                    </div>
+            <!-- Todos -->
+            <button onclick="filtrarCategoria('todos')" class="flex flex-col items-center group flex-shrink-0 focus:outline-none">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition overflow-hidden bg-gray-100 flex items-center justify-center font-bold text-lg text-[#c5a059]">
+                    🌸
                 </div>
-                <span class="text-xs md:text-sm font-semibold mt-2 text-center max-w-[80px]">Ramos de flores</span>
-            </div>
+                <span class="text-xs font-semibold mt-2 text-center max-w-[80px]">Todos</span>
+            </button>
 
-            <!-- Círculo 2 -->
-            <div class="flex flex-col items-center cursor-pointer group flex-shrink-0">
-                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition">
-                    <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 overflow-hidden">
-                        🎂
-                    </div>
+            <!-- Ramos de flores -->
+            <button onclick="filtrarCategoria('ramos')" class="flex flex-col items-center group flex-shrink-0 focus:outline-none">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=200&auto=format&fit=crop" class="w-full h-full object-cover rounded-full" alt="Ramos">
                 </div>
-                <span class="text-xs md:text-sm font-semibold mt-2 text-center max-w-[80px]">Cumpleaños</span>
-            </div>
+                <span class="text-xs font-semibold mt-2 text-center max-w-[80px]">Ramos de flores</span>
+            </button>
 
-            <!-- Círculo 3 -->
-            <div class="flex flex-col items-center cursor-pointer group flex-shrink-0">
-                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition">
-                    <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 overflow-hidden">
-                        🎁
-                    </div>
+            <!-- Ramos de rosas -->
+            <button onclick="filtrarCategoria('rosas')" class="flex flex-col items-center group flex-shrink-0 focus:outline-none">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=200&auto=format&fit=crop" class="w-full h-full object-cover rounded-full" alt="Rosas">
                 </div>
-                <span class="text-xs md:text-sm font-semibold mt-2 text-center max-w-[80px]">Regalos con flores</span>
-            </div>
+                <span class="text-xs font-semibold mt-2 text-center max-w-[80px]">Ramos de rosas</span>
+            </button>
 
-            <!-- Círculo 4 -->
-            <div class="flex flex-col items-center cursor-pointer group flex-shrink-0">
-                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition">
-                    <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 overflow-hidden">
-                        🌹
-                    </div>
+            <!-- Girasoles -->
+            <button onclick="filtrarCategoria('girasoles')" class="flex flex-col items-center group flex-shrink-0 focus:outline-none">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=200&auto=format&fit=crop" class="w-full h-full object-cover rounded-full" alt="Girasoles">
                 </div>
-                <span class="text-xs md:text-sm font-semibold mt-2 text-center max-w-[80px]">Ramos de rosas</span>
-            </div>
+                <span class="text-xs font-semibold mt-2 text-center max-w-[80px]">Girasoles</span>
+            </button>
 
-            <!-- Círculo 5 -->
-            <div class="flex flex-col items-center cursor-pointer group flex-shrink-0">
-                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition">
-                    <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 overflow-hidden">
-                        ✨
-                    </div>
+            <!-- Memoriales -->
+            <button onclick="filtrarCategoria('memoriales')" class="flex flex-col items-center group flex-shrink-0 focus:outline-none">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition overflow-hidden bg-gray-100 flex items-center justify-center font-bold text-[#2c2a29]">
+                    ✝️
                 </div>
-                <span class="text-xs md:text-sm font-semibold mt-2 text-center max-w-[80px]">Precios irresistibles</span>
-            </div>
-
-            <!-- Círculo 6 -->
-            <div class="flex flex-col items-center cursor-pointer group flex-shrink-0">
-                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full p-1 border-2 border-[#c5a059] group-hover:scale-105 transition">
-                    <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 overflow-hidden">
-                        ❤️
-                    </div>
-                </div>
-                <span class="text-xs md:text-sm font-semibold mt-2 text-center max-w-[80px]">Amor</span>
-            </div>
+                <span class="text-xs font-semibold mt-2 text-center max-w-[80px]">Memoriales</span>
+            </button>
 
         </div>
     </nav>
 
-    <!-- Contenido Principal (Catálogo) -->
+    <!-- Contenido Principal -->
     <main class="max-w-6xl mx-auto px-4 py-8">
         
-        <div class="text-center mb-10">
-            <h2 class="text-2xl font-bold mb-2">Catálogo Destacado</h2>
-            <p class="text-gray-600">Elige tu diseño favorito y realiza tu pedido directo al WhatsApp.</p>
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-serif font-bold mb-1">Catálogo Exclusivo</h2>
+            <p class="text-sm text-gray-600">Elige tu arreglo, personaliza tu mensaje y haz tu pedido al instante.</p>
         </div>
 
         <!-- Cuadrícula de Productos -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Producto 1: Memoriales -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
+            <!-- Producto 1: Memorial Presencia -->
+            <div class="producto-card memoriales bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
                 <div>
-                    <div class="bg-gray-100 h-64 flex items-center justify-center text-gray-400 font-medium">
-                        <span>[ Foto: Arreglo Presencia ]</span>
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Arreglo Presencia">
+                        <span class="absolute top-3 left-3 text-xs bg-white/90 text-[#2c2a29] font-bold px-3 py-1 rounded-full border border-[#c5a059]">Memoriales</span>
                     </div>
                     <div class="p-5">
-                        <span class="text-xs bg-[#f9f6f0] text-[#c5a059] font-bold px-2 py-1 rounded border border-[#c5a059]">Memoriales</span>
-                        <h3 class="font-bold text-xl mt-2">Arreglo Presencia</h3>
-                        <p class="text-sm text-gray-600 mt-1">Delicada composición floral de crisantemos y flores del campo. Base: Baja. Forma: Triangular.</p>
+                        <h3 class="font-bold text-xl text-[#2c2a29]">Arreglo Presencia</h3>
+                        <p class="text-xs text-gray-500 mt-1">Delicada composición floral de crisantemos y flores del campo. Base: Baja. Forma: Triangular.</p>
                         <p class="text-lg font-bold text-[#c5a059] mt-3">250.000 Gs.</p>
                     </div>
                 </div>
                 <div class="p-5 pt-0">
-                    <a href="https://wa.me/595981000000?text=¡Hola!%20Quiero%20encargar%20el%20Arreglo%20Presencia%20(250.000%20Gs.)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition">
+                    <button onclick="pedirPorWhatsapp('Arreglo Presencia', '250.000 Gs.')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-sm">
                         <span>📲 Pedir por WhatsApp</span>
-                    </a>
+                    </button>
                 </div>
             </div>
 
-            <!-- Producto 2: Ramos de Rosas -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
+            <!-- Producto 2: Colección Ella -->
+            <div class="producto-card rosas bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
                 <div>
-                    <div class="bg-gray-100 h-64 flex items-center justify-center text-gray-400 font-medium">
-                        <span>[ Foto: Colección Ella ]</span>
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Colección Ella">
+                        <span class="absolute top-3 left-3 text-xs bg-white/90 text-[#2c2a29] font-bold px-3 py-1 rounded-full border border-[#c5a059]">Ramos de rosas</span>
                     </div>
                     <div class="p-5">
-                        <span class="text-xs bg-[#f9f6f0] text-[#c5a059] font-bold px-2 py-1 rounded border border-[#c5a059]">Ramos de rosas</span>
-                        <h3 class="font-bold text-xl mt-2">Colección Ella</h3>
-                        <p class="text-sm text-gray-600 mt-1">Hermoso ramo armado con rosas importadas de primera calidad y detalles de temporada.</p>
+                        <h3 class="font-bold text-xl text-[#2c2a29]">Colección Ella</h3>
+                        <p class="text-xs text-gray-500 mt-1">Hermoso ramo de rosas importadas de primera calidad cuidadosamente seleccionadas.</p>
                         <p class="text-lg font-bold text-[#c5a059] mt-3">200.000 Gs.</p>
                     </div>
                 </div>
                 <div class="p-5 pt-0">
-                    <a href="https://wa.me/595981000000?text=¡Hola!%20Quiero%20encargar%20la%20Colección%20Ella%20(200.000%20Gs.)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition">
+                    <button onclick="pedirPorWhatsapp('Colección Ella', '200.000 Gs.')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-sm">
                         <span>📲 Pedir por WhatsApp</span>
-                    </a>
+                    </button>
                 </div>
             </div>
 
-            <!-- Producto 3: Girasoles -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
+            <!-- Producto 3: Rayo de Sol -->
+            <div class="producto-card girasoles bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
                 <div>
-                    <div class="bg-gray-100 h-64 flex items-center justify-center text-gray-400 font-medium">
-                        <span>[ Foto: Rayo de Sol ]</span>
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Rayo de Sol">
+                        <span class="absolute top-3 left-3 text-xs bg-white/90 text-[#2c2a29] font-bold px-3 py-1 rounded-full border border-[#c5a059]">Girasoles</span>
                     </div>
                     <div class="p-5">
-                        <span class="text-xs bg-[#f9f6f0] text-[#c5a059] font-bold px-2 py-1 rounded border border-[#c5a059]">Ramos de flores</span>
-                        <h3 class="font-bold text-xl mt-2">Rayo de Sol</h3>
-                        <p class="text-sm text-gray-600 mt-1">Vibrante ramo de girasoles frescos acompañados de follaje verde para alegrar el día.</p>
+                        <h3 class="font-bold text-xl text-[#2c2a29]">Rayo de Sol</h3>
+                        <p class="text-xs text-gray-500 mt-1">Vibrante ramo de girasoles frescos acompañados de fino follaje de estación.</p>
                         <p class="text-lg font-bold text-[#c5a059] mt-3">180.000 Gs.</p>
                     </div>
                 </div>
                 <div class="p-5 pt-0">
-                    <a href="https://wa.me/595981000000?text=¡Hola!%20Quiero%20encargar%20el%20ramo%20Rayo%20de%20Sol%20(180.000%20Gs.)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition">
+                    <button onclick="pedirPorWhatsapp('Rayo de Sol', '180.000 Gs.')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-sm">
                         <span>📲 Pedir por WhatsApp</span>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -156,9 +140,45 @@
     </main>
 
     <!-- Pie de página -->
-    <footer class="bg-white border-t border-[#e8c4c4] text-center py-6 mt-16 text-sm text-gray-500">
-        <p>© 2026 Flor & Flor • Caaguazú, Paraguay</p>
+    <footer class="bg-white border-t border-[#e8c4c4] text-center py-6 mt-16 text-xs text-gray-500">
+        <p>© 2026 Flor & Flor • Caaguazú | Campo 9, Paraguay</p>
     </footer>
 
+    <!-- Lógica de Interactividad Javascript -->
+    <script>
+        const whatsappTelefono = "595973593873";
+
+        function pedirPorWhatsapp(productoNombre, precio) {
+            const dedicatoria = prompt(" Escribe la dedicatoria para la tarjeta (o deja vacío si no deseas):");
+            const fecha = prompt("📅 ¿Para qué fecha necesitas la entrega? (ej. Hoy, Mañana, 15/10):");
+            
+            let mensaje = `¡Hola *Flor & Flor*! 🌸\nQuiero realizar un pedido desde la página web:\n\n`;
+            mensaje += `💐 *Producto:* ${productoNombre}\n`;
+            mensaje += `💰 *Precio:* ${precio}\n`;
+            
+            if (dedicatoria && dedicatoria.trim() !== "") {
+                mensaje += `📝 *Dedicatoria tarjeta:* "${dedicatoria.trim()}"\n`;
+            }
+            if (fecha && fecha.trim() !== "") {
+                mensaje += `📅 *Fecha de entrega:* ${fecha.trim()}\n`;
+            }
+            
+            mensaje += `\n¿Me indican los pasos para coordinar la entrega y el pago? ¡Gracias!`;
+
+            const url = `https://wa.me/${whatsappTelefono}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+
+        function filtrarCategoria(categoria) {
+            const tarjetas = document.querySelectorAll('.producto-card');
+            tarjetas.forEach(tarjeta => {
+                if (categoria === 'todos' || tarjeta.classList.contains(categoria)) {
+                    tarjeta.style.display = 'flex';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
