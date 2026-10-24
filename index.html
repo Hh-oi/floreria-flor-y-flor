@@ -3,16 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flor & Flor - Catálogo</title>
+    <title>Flor & Flor | Arte Floral & Catálogo</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#f9f6f0] flex items-center justify-center h-screen">
-    <div class="text-center p-8 bg-white rounded-2xl shadow-lg border border-[#e8c4c4]">
-        <h1 class="text-3xl font-bold text-[#2c2a29] mb-2">🌸 Flor & Flor</h1>
-        <p class="text-gray-600 mb-6">Nuestra página web oficial está en camino...</p>
-        <a href="https://wa.me/595981000000?text=Hola,%20quiero%20consultar%20sobre%20los%20arreglos%20florales" target="_blank" class="bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-700 transition">
-            📲 Pedidos por WhatsApp
-        </a>
-    </div>
+<body class="bg-[#f9f6f0] text-[#2c2a29] font-sans">
+
+    <!-- Encabezado -->
+    <header class="bg-white shadow-sm border-b border-[#e8c4c4] py-6 text-center">
+        <h1 class="text-3xl font-serif font-bold text-[#2c2a29]">Flor & Flor</h1>
+        <p class="text-sm tracking-widest text-[#c5a059] uppercase mt-1">Arte Floral que Emociona • Caaguazú</p>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <div class="text-center mb-10">
+            <h2 class="text-2xl font-bold mb-2">Nuestros Catálogos y Arreglos</h2>
+            <p class="text-gray-600">Elige tu diseño favorito y realiza tu pedido directo al WhatsApp.</p>
+        </div>
+
+        <!-- Cuadrícula de Productos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Producto 1: Memoriales -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
+                <div>
+                    <div class="bg-gray-100 h-64 flex items-center justify-center text-gray-400 font-medium">
+                        <!-- Aquí irá la foto del producto -->
+                        <span>[ Foto: Arreglo Presencia ]</span>
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs bg-[#f9f6f0] text-[#c5a059] font-bold px-2 py-1 rounded border border-[#c5a059]">Memoriales</span>
+                        <h3 class="font-bold text-xl mt-2">Arreglo Presencia</h3>
+                        <p class="text-sm text-gray-600 mt-1">Delicada composición floral de crisantemos y flores del campo. Base: Baja. Forma: Triangular.</p>
+                        <p class="text-lg font-bold text-[#c5a059] mt-3">250.000 Gs.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0">
+                    <a href="https://wa.me/595981000000?text=¡Hola!%20Quiero%20encargar%20el%20Arreglo%20Presencia%20(250.000%20Gs.)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition">
+                        <span>📲 Pedir por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 2: Ramos de Rosas -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
+                <div>
+                    <div class="bg-gray-100 h-64 flex items-center justify-center text-gray-400 font-medium">
+                        <span>[ Foto: Ramos de Rosas ]</span>
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs bg-[#f9f6f0] text-[#c5a059] font-bold px-2 py-1 rounded border border-[#c5a059]">Ramos de Rosas</span>
+                        <h3 class="font-bold text-xl mt-2">Colección Ella</h3>
+                        <p class="text-sm text-gray-600 mt-1">Hermoso ramo armado con rosas importadas de primera calidad y detalles de temporada.</p>
+                        <p class="text-lg font-bold text-[#c5a059] mt-3">200.000 Gs.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0">
+                    <a href="https://wa.me/595981000000?text=¡Hola!%20Quiero%20encargar%20la%20Colección%20Ella%20(200.000%20Gs.)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition">
+                        <span>📲 Pedir por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Producto 3: Girasoles -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e8c4c4] flex flex-col justify-between">
+                <div>
+                    <div class="bg-gray-100 h-64 flex items-center justify-center text-gray-400 font-medium">
+                        <span>[ Foto: Ramos de Girasoles ]</span>
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs bg-[#f9f6f0] text-[#c5a059] font-bold px-2 py-1 rounded border border-[#c5a059]">Girasoles</span>
+                        <h3 class="font-bold text-xl mt-2">Rayo de Sol</h3>
+                        <p class="text-sm text-gray-600 mt-1">Vibrante ramo de girasoles frescos acompañados de follaje verde para alegrar el día.</p>
+                        <p class="text-lg font-bold text-[#c5a059] mt-3">180.000 Gs.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0">
+                    <a href="https://wa.me/595981000000?text=¡Hola!%20Quiero%20encargar%20el%20ramo%20Rayo%20de%20Sol%20(180.000%20Gs.)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition">
+                        <span>📲 Pedir por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-white border-t border-[#e8c4c4] text-center py-6 mt-16 text-sm text-gray-500">
+        <p>© 2026 Flor & Flor • Caaguazú, Paraguay</p>
+    </footer>
+
 </body>
 </html>
