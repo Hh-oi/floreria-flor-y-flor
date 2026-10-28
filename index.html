@@ -17,34 +17,63 @@
 
         .animate-float { animation: float 4s ease-in-out infinite; }
         .animate-float-delayed { animation: float 4s ease-in-out 2s infinite; }
+
+        /* Transición suave para las imágenes del banner principal */
+        .hero-slide {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            inset: 0;
+        }
+        .hero-slide.active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-[#fcf9f5] text-[#2c2a29] font-sans min-h-screen selection:bg-[#e6cab3] selection:text-[#2c2a29]">
 
     <!-- Encabezado Fijo Minimalista -->
-    <header class="bg-white/80 backdrop-blur-md border-b border-[#e5dcd3] py-4 px-6 flex justify-between items-center sticky top-0 z-50 shadow-sm">
-        <span class="font-serif font-bold text-lg tracking-wider text-[#c29676]">FLOR & FLOR</span>
+    <header class="bg-white/90 backdrop-blur-md border-b border-[#e5dcd3] py-4 px-6 flex justify-between items-center sticky top-0 z-50 shadow-sm">
+        <span class="font-serif font-bold text-xl tracking-wider text-[#c29676]">FLOR & FLOR</span>
+        <div class="hidden md:flex gap-8 text-xs uppercase tracking-[0.2em] text-[#786c62] font-medium">
+            <span class="cursor-pointer hover:text-[#c29676]">Colecciones</span>
+            <span class="cursor-pointer hover:text-[#c29676]">Ramos</span>
+            <span class="cursor-pointer hover:text-[#c29676]">Memoriales</span>
+            <span class="cursor-pointer hover:text-[#c29676]">Contacto</span>
+        </div>
         <span class="text-xs tracking-[0.2em] uppercase text-[#786c62]">Caaguazú, PY</span>
     </header>
 
-    <!-- SECCIÓN PRINCIPAL / BANNER DE BIENVENIDA (Estilo Hotel de Lujo) -->
-    <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center overflow-hidden">
-        <!-- Imagen de fondo de florería de alta calidad con filtro oscuro sutil -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=1600&auto=format&fit=crop" class="w-full h-full object-cover brightness-[0.75]" alt="Florería Interior">
-            <div class="absolute inset-0 bg-black/30"></div>
+    <!-- SECCIÓN PRINCIPAL / BANNER DINÁMICO (Estilo el video de referencia) -->
+    <section class="relative h-[70vh] min-h-[450px] flex items-center overflow-hidden bg-[#1a1816]">
+        
+        <!-- Diapositivas de fondo con imágenes de florería de lujo -->
+        <div class="hero-slide active">
+            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=1600&auto=format&fit=crop" class="w-full h-full object-cover brightness-[0.7]" alt="Arreglo Floral 1">
+        </div>
+        <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600&auto=format&fit=crop" class="w-full h-full object-cover brightness-[0.7]" alt="Arreglo Floral 2">
+        </div>
+        <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=1600&auto=format&fit=crop" class="w-full h-full object-cover brightness-[0.7]" alt="Arreglo Floral 3">
         </div>
 
-        <!-- Contenido central del Banner -->
-        <div class="relative z-10 max-w-3xl px-4 text-white">
-            <p class="text-xs tracking-[0.3em] uppercase text-[#f3e3c3] mb-3 font-medium">Bienvenidos a</p>
-            <h1 class="text-4xl md:text-6xl font-serif font-bold tracking-wide mb-4 text-white drop-shadow-md">FLOR & FLOR</h1>
-            <p class="text-sm md:text-base text-gray-200 font-light italic max-w-lg mx-auto drop-shadow">El arte de regalar emociones a través de diseños florales exclusivos en Caaguazú.</p>
+        <!-- Capa sutil de sombra para legibilidad -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10"></div>
+
+        <!-- Contenido de texto dinámico -->
+        <div class="relative z-20 max-w-6xl mx-auto px-8 w-full text-white">
+            <p class="text-xs tracking-[0.3em] uppercase text-[#f3e3c3] mb-3 font-semibold">Exclusividad en Caaguazú</p>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold tracking-wide mb-4 max-w-xl leading-tight">FLORES QUE DICEN UNA HISTORIA</h1>
+            <p class="text-sm md:text-base text-gray-200 font-light italic max-w-md mb-8">Diseños florales con naturaleza, elegancia y detalles de alta gama elaborados a mano.</p>
+            <a href="#catalogo" class="inline-block bg-[#c29676] hover:bg-[#b08465] text-white text-xs uppercase tracking-[0.2em] font-semibold py-4 px-8 rounded-full transition duration-300 shadow-lg">
+                Ver Colección
+            </a>
         </div>
     </section>
 
     <!-- Barra de Categorías en Círculos Elegantes -->
-    <nav class="py-10 bg-white border-b border-[#e5dcd3] overflow-x-auto no-scrollbar shadow-sm">
+    <nav id="catalogo" class="py-10 bg-white border-b border-[#e5dcd3] overflow-x-auto no-scrollbar shadow-sm">
         <div class="max-w-6xl mx-auto px-4 flex gap-6 md:gap-8 justify-start md:justify-center items-center">
             
             <button onclick="filtrarCategoria('todos')" class="flex flex-col items-center group focus:outline-none flex-shrink-0">
@@ -85,7 +114,7 @@
         </div>
     </nav>
 
-    <!-- Contenido Principal -->
+    <!-- Contenido Principal de Productos -->
     <main class="max-w-6xl mx-auto px-4 py-16">
         
         <div class="text-center mb-16">
@@ -164,8 +193,21 @@
         <p>© 2026 Flor & Flor • Caaguazú, Paraguay</p>
     </footer>
 
-    <!-- Lógica de Interacción -->
+    <!-- Lógica de Interacción y Carrusel -->
     <script>
+        // Carrusel automático para el banner principal
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 4500); // Cambia de foto cada 4.5 segundos de forma suave
+
+        // WhatsApp y Filtros
         const whatsappTelefono = "595973593873";
 
         function pedirPorWhatsapp(productoNombre, precio) {
